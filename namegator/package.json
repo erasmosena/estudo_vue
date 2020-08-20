@@ -5,15 +5,19 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-css": "postcss src/css/tailwind.css -o src/css/dist/tailwind.css",
     "lint": "vue-cli-service lint --no-fix"
   },
   "dependencies": {
-    "bootstrap": "^4.5.0",
+    "autoprefixer": "^9.8.6",
     "core-js": "^3.6.5",
     "font-awesome": "^4.7.0",
+    "postcss-cli": "^7.1.1",
+    "tailwindcss": "^1.7.3",
     "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.3.0",
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
@@ -35,9 +39,18 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "quotes":["error","double"],
-      "indent":["error","tab"],
-      "semi":["error","always"]
+      "quotes": [
+        "error",
+        "double"
+      ],
+      "indent": [
+        "error",
+        "tab"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ]
     }
   },
   "browserslist": [

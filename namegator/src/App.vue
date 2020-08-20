@@ -1,7 +1,9 @@
+
+
 <template>
   <div id="app">
-    <div id="slogan" class="text-center">
-      <h1>NameGator</h1>
+    <div id="slogan" class="">
+      <h1 class="text-4xl font-bold text-center text-blue-700">NameGator</h1>
       <br />
       <h6 class="text-secondary">Gerador de nomes utilizando Vue.js</h6>
     </div>
@@ -12,8 +14,8 @@
 </template>
 
 <script>
+import "./css/dist/tailwind.css";
 import "font-awesome/css/font-awesome.min.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import DomainList from "./components/DomainList";
 
 export default {

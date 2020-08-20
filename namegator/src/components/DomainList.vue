@@ -1,36 +1,28 @@
 <template>
   <div >
     <div id="main">
-      <div class="container">
-        <div class="row">
-          <div class="col-md">            
-            <AppItemList v-bind:items="prefixes" title="Prefixos" v-on:addItem="addPrefix" v-on:deleteItem="deletePrefix"></AppItemList>            
-          </div>
-          <div class="col-md">
-            <AppItemList v-bind:items="sufixes" title="Sufixos" v-on:addItem="addSufix" v-on:deleteItem="deleteSufix"></AppItemList>            
-          </div>
+      <div class="w-full max-w-xs">
+        <div class="flex flex-wrap">          
+            <AppItemList v-bind:items="prefixes" title="Prefixos" v-on:addItem="addPrefix" v-on:deleteItem="deletePrefix"></AppItemList>                      
+            <AppItemList v-bind:items="sufixes" title="Sufixos" v-on:addItem="addSufix" v-on:deleteItem="deleteSufix"></AppItemList>                      
         </div>
-        <br />
+        
         <h5>
           Domínios
-          <span class="badge badge-info">{{domains.length}}</span>
+          <span >{{domains.length}}</span>
         </h5>
-        <div class="card">
-          <div class="card-body">
-            <ul class="list-group">
-              <li class="list-group-item" v-for="domain in domains" v-bind:key="domain.name">
-                <div class="row">
-                  <div class="col-md">{{domain.name}}</div>
-                  <div class="col-md text-right">
-                    
-                    <a v-bind:href="domain.checkout" target="_blank" class="btn btn-info">
+        <div >          
+            <ul >
+              <li v-for="domain in domains" v-bind:key="domain.name">                
+                  <div >{{domain.name}}</div>
+                  <div >                    
+                    <a v-bind:href="domain.checkout" target="_blank" >
                     <span class="fa fa-shopping-cart"></span>
                     </a>
-                  </div>
-                </div>
+                  </div>                
               </li>
             </ul>
-          </div>
+        
         </div>
       </div>
     </div>
@@ -40,7 +32,6 @@
 <script>
 
 import "font-awesome/css/font-awesome.min.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import AppItemList from "./AppItemList";
 
 export default {
