@@ -10,11 +10,20 @@ const typeDefs = `
     type Query{
         items(type:String):[Item]
     }    
+
+    input ItemInput{
+        type: String
+        description: String 
+    }
+
+    type Mutation {
+        saveItem(item: ItemInput) :Item
+    }  
 `;
 
 const items = [
     {id:1, type:'prefix', description: 'Air'},
-    {id:2, type:'prefix', description: 'Jet'},
+    {id:2, type:'prefix', description: 'Jet'}, 
     {id:3, type:'prefix', description: 'Flight'},
     {id:4, type:'sufix', description: 'Hub'},
     {id:5, type:'sufix', description: 'Station'},
@@ -25,13 +34,20 @@ const resolvers = {
     Query: {
         items(_, args){
             return items.filter(it => it.type== args.type);
-        },
-        
+        }
+    },
+    Mutation : {
+        saveItem(_,args){
+            const item = args.item;
+            item.id = Math.floor(Math.random()*1000);
+            items.push(item);
+            return item ;
+        }    
     }
 };
 
 const server = new ApolloServer({typeDefs, resolvers});
 
 server.listen().then(({ url }) => {
-    console.log(`🚀  Server ready at ${url}`);
+    console.log(`Server ready at ${url}`); 
   });
